@@ -6,8 +6,8 @@ const assert = require('assert')
 
 //SETUP CHROME DRIVER
 var chrome = require('selenium-webdriver/chrome');
-const Chrome = require('chromedriver');
-var options   = new chrome.Options().headless();
+//const Chrome = require('chromedriver');
+//var options   = new chrome.Options().headless();
 
 const firefox = require('geckodriver');
 
@@ -26,8 +26,8 @@ Before(function () {
   
         // Microsoft uses a longer name for Edge
         let browser = process.env.BROWSER;
-        if (browser == 'firefox') { browser = 'Firefox'; }
-        if (browser == 'chrome') { browser = 'Chrome'; }
+        if (browser == 'firefox') { browser = 'firefox'; }
+        if (browser == 'chrome') { browser = 'chrome'; }
 
         // Connect to service specified in env variable or default to 'selenium'
         const host = process.env.SELENIUM || 'selenium';
