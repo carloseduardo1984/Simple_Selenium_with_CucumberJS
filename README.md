@@ -7,4 +7,6 @@ Repository about solutions to do the designer with CucumberJS, Selenium, and HTM
 
 Some templates attached for VSCode IDE.
 
+For run > npm run test
+
 ![selenium_cucumberJS](https://user-images.githubusercontent.com/33332202/175794818-d85741c0-ecc9-403b-8882-9ed6d57b9977.jpg)
