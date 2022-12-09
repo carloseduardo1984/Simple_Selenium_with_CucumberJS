@@ -26,9 +26,27 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
-      - run: npm install
+     
+      - name: Install libraries
+        run: npm install --save-dev @cucumber/pretty-formatter @cucumber/cucumber selenium-webdriver assert chromedriver   
         timeout-minutes: 10
-      - run: npm run test
+        
+      - name: Run Tests
+        continue-on-error: true
+        run:  npm run test   
+      
+      - uses: everlytic/branch-merge@1.1.2
+        with:          
+          source_ref: 'qa'
+          target_branch: 'uat'
+          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'       
+        
+      - name: Generate report
+        uses: actions/upload-artifact@v2
+        with:
+         name: QA-report.html
+         path: "**/cucumber-report.html"     
+     
         env:
           BROWSER: ${{ matrix.browser }}
       - uses: actions/upload-artifact@v2
