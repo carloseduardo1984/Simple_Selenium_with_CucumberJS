@@ -32,14 +32,14 @@ Before(function () {
   })
 
 
-Given('I visit publicazo homepage', {timeout: 30 * 1000}, function() {  
+Given('usuario acessa menu de cadastro novamente', {timeout: 30 * 1000}, function() {  
     
     driver.get("https://demo.guru99.com/Agile_Project/Agi_V1/")
     driver.manage().window().setRect({ width: 1364, height: 718 })
        
           });
 
-When('I search for teste', {timeout: 15 * 1000}, function() { 
+When('preenche campos com exemplos {string},{string},{string} e confirmacao', {timeout: 15 * 1000}, function (string, string2, string3) { 
 
     driver.findElement(By.name("uid")).click()
      driver.findElement(By.name("uid")).sendKeys("1303")
@@ -49,7 +49,7 @@ When('I search for teste', {timeout: 15 * 1000}, function() {
 
           });
 
-Then('I should see the results', {timeout: 15 * 1000}, function() { 
+Then('o sistema exibe uma mensagem de sucesso para cada exemplo', {timeout: 15 * 1000}, function() { 
 
     driver.findElement(By.name("btnLogin")).click()
     assert( driver.findElement(By.css(".heading3")).getText() != "Welcome To Customer")
