@@ -5,11 +5,13 @@ Feature: UC001 - Cadastrar usuário com exemplos
 
     Scenario Outline: Fluxo Principal com exemplos
 
-    Given usuario acessa menu de cadastro novamente
+    Given usuario acessa menu de cadastro novamente, "<browser>"
     When preenche campos com exemplos "<nome>","<email>","<senha>" e confirmacao
     Then o sistema exibe uma mensagem de sucesso para cada exemplo
 
     Examples:
-    | nome          | email         | senha         |
-    | Carlos        | ca@ca.com     | 12345         |
-    | Joao          | ja@ca.com     | 1234565       |
+    | nome          | email         | senha         | browser   |
+    | Carlos        | ca@ca.com     | 12345         | chrome    |
+    | Joao          | ja@ca.com     | 1234565       | chrome    |
+    | Carlos        | ca@ca.com     | 12345         | firefox   |
+    | Joao          | ja@ca.com     | 1234565       | firefox   |
