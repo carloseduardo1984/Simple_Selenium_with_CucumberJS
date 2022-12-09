@@ -6,8 +6,10 @@ const assert = require('assert')
 
 //SETUP CHROME DRIVER
 var chrome = require('selenium-webdriver/chrome');
-const ChromeDriver = require('chromedriver');
+const Chrome = require('chromedriver');
 var options   = new chrome.Options().headless();
+
+const firefox = require('geckodriver');
 
 // SETUP FIREFOX DRIVER 
 // const firefox = require('geckodriver');
@@ -17,13 +19,22 @@ var options   = new chrome.Options().headless();
 //          .build();
 
   let driver
+  
+  before
 
 Before(function () {
-    driver =  new Builder()
-    .forBrowser('chrome')
-    .withCapabilities(webdriver.Capabilities.chrome())
-    //.setChromeOptions(options)
-    .build();    
+  
+        // Microsoft uses a longer name for Edge
+        let browser = process.env.BROWSER;
+        if (browser == 'firefox') { browser = 'Firefox'; }
+        if (browser == 'chrome') { browser = 'Chrome'; }
+
+        // Connect to service specified in env variable or default to 'selenium'
+        const host = process.env.SELENIUM || 'selenium';
+
+        driver = new Builder()
+            .forBrowser(browser)
+            .build();  
   })
 
   After( function() {
