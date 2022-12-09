@@ -1,26 +1,19 @@
 const {Given, Then, When, Before, After} = require('@cucumber/cucumber')
-let Assert = require('assert')
-
-Before(function () {
-    console.log('Inside Before')
-});
-
-After(function () {
-    console.log('Inside After')
-   
-});
-
-When('I add {int} and {int}', function (int, int2) {
-   
-    const result = int + int2   
-    console.log('Numbers ' + int + '+' + int2 + ' = ' + result)
-
-});
 
 
-Then('the result should be {int}', function (int) {
+Given('usuario acessa menu de cadastro novamente', function () {
+    // Write code here that turns the phrase above into concrete actions
+    
+  });
 
-    Assert.equal('7', int)
-    console.log('Test2')
 
-});
+When('preenche campos com exemplos {string},{string},{string} e confirmacao', function (string, string2, string3) {      
+    // Write code here that turns the phrase above into concrete actions
+    
+  });
+
+
+  Then('o sistema exibe uma mensagem de sucesso para cada exemplo', function () {
+    // Write code here that turns the phrase above into concrete actions
+    
+  });
