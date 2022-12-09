@@ -1,7 +1,15 @@
-Feature: Search
+Feature: UC001 - Cadastrar usuário com exemplos
+	O usuário preencher os campos: Nome, e-mail, senha e confirmação de senha.
+	O usuário clica no botão 'Cadastrar'.
+    O sistema exibe uma mensagem de sucesso.
 
-    Scenario: Search any
+    Scenario Outline: Fluxo Principal com exemplos
 
-    Given I visit publicazo homepage
-    When I search for teste
-    Then I should see the results
+    Given usuario acessa menu de cadastro novamente
+    When preenche campos com exemplos "<nome>","<email>","<senha>" e confirmacao
+    Then o sistema exibe uma mensagem de sucesso para cada exemplo
+
+    Examples:
+    | nome          | email         | senha         |
+    | Carlos        | ca@ca.com     | 12345         |
+    | Joao          | ja@ca.com     | 1234565       |
