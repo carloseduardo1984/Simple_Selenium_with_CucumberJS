@@ -20,10 +20,20 @@ jobs:
 
       - name: Check out repository code
         uses: actions/checkout@v2
+        timeout-minutes: 10
 
       - name: Install libraries
-        run: npm install 
+        run: npm install --save-dev @cucumber/pretty-formatter @cucumber/cucumber selenium-webdriver assert chromedriver   
+        timeout-minutes: 10
         
       - name: Run Tests
-        run:  npm run test   
+        continue-on-error: true
+        run:  npm run test       
+          
+       
+      - name: Generate report
+        uses: actions/upload-artifact@v2
+        with:
+         name: Myreport.html
+         path: "**/cucumber-report.html"       
        
