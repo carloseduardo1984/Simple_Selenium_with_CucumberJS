@@ -34,11 +34,11 @@ jobs:
         continue-on-error: true
         run:  npm test   
       
-      - uses: everlytic/branch-merge@1.1.2
-        with:          
-          source_ref: 'qa'
-          target_branch: 'uat'
-          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'       
+#       - uses: everlytic/branch-merge@1.1.2
+#         with:          
+#           source_ref: 'qa'
+#           target_branch: 'uat'
+#           commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'       
         
       - name: Generate report
         uses: actions/upload-artifact@v2
