@@ -21,19 +21,18 @@ jobs:
         image: selenium/standalone-${{ matrix.browser }}
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'npm'
-     
+          
       - name: Install libraries
-        run: npm install --save-dev @cucumber/pretty-formatter @cucumber/cucumber selenium-webdriver assert chromedriver   
+        run: npm install 
         timeout-minutes: 10
         
       - name: Run Tests
         continue-on-error: true
-        run:  npm run test   
+        run:  npm test   
       
       - uses: everlytic/branch-merge@1.1.2
         with:          
@@ -48,9 +47,5 @@ jobs:
          path: "**/cucumber-report.html"     
      
         env:
-          BROWSER: ${{ matrix.browser }}
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: ${{ matrix.browser }}
-          path: screenshots/
+          BROWSER: ${{ matrix.browser }}        
+     
